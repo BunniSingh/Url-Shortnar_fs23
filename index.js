@@ -17,7 +17,7 @@ app.get("/", (req, res)=>{
 
 app.post('/short_url', (req, res) => {
     const uniqueId = nanoid(6);
-    const baseUrl = "https://url-shortnar-fs23.onrender.com";
+    const baseUrl = "https://url-shortnar-fs23.onrender.com/";
     const shortUrl = baseUrl + uniqueId;
     const fileData = fs.readFileSync('url-data.json', 'utf-8');
     const dataObj = JSON.parse(fileData);
