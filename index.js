@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 const filePath = path.join(import.meta.dirname, 'index.html')
 console.log(filePath)
 
@@ -17,7 +17,7 @@ app.get("/", (req, res)=>{
 
 app.post('/short_url', (req, res) => {
     const uniqueId = nanoid(6);
-    const baseUrl = "http://localhost:4000/";
+    const baseUrl = "https://url-shortnar-fs23.onrender.com";
     const shortUrl = baseUrl + uniqueId;
     const fileData = fs.readFileSync('url-data.json', 'utf-8');
     const dataObj = JSON.parse(fileData);
